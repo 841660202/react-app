@@ -1,0 +1,48 @@
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+
+const PEEPS = [
+  { id: 0, name: 'Michelle', friends: [ 1, 2, 3 ] },
+  { id: 1, name: 'Sean', friends: [ 0, 3 ] },
+  { id: 2, name: 'Kim', friends: [ 0, 1, 3 ], },
+  { id: 3, name: 'David', friends: [ 1, 2 ] }
+]
+//常函数参数可变数据结果可变，
+const find = (id) => PEEPS.find(p => p.id === id)
+//带有router的组件被导出
+const RecursiveExample = () => (
+  <Router>
+    <Person match={
+      {
+        params: {id: 0 },
+        url: '' 
+        }
+    }/>
+  </Router>
+)
+// props以参数的形式传递
+const Person = ({ match }) => {
+  const person = find(match.params.id)
+
+  return (
+    <div>
+      <h3>{person.name}’s Friends</h3>
+      <ul>
+        {person.friends.map(id => (
+          <li key={id}>
+            <Link to={`${match.url}/${id}`}>
+              {find(id).name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <Route path={`${match.url}/:id`} component={Person}/>
+    </div>
+  )
+}
+
+export default RecursiveExample
