@@ -2,7 +2,8 @@ import React from 'react'
 import {Button,Modal} from 'antd'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actions from '../../actions/index'
+import * as actions from '../../actions/index';
+import './index.css';
 class Subpage1 extends React.Component {
   handleShowModal() {
       console.info(123)
@@ -18,11 +19,7 @@ class Subpage1 extends React.Component {
             <div>
                 <h1>Subpage1</h1>
 
-                <div
-                    style={{
-                    background: 'rgb(190, 200, 200)',
-                    padding: '26px 16px 16px'
-                }}>
+                <div className="contain">
                     <Button type="primary" ghost
                     //有三种写法，优先es6
                     onClick={()=>{this.handleShowModal()}}
@@ -33,6 +30,16 @@ class Subpage1 extends React.Component {
                     <Button type="dashed" ghost>Dashed</Button>
                     <Button type="danger" ghost>danger</Button>
                 </div>
+
+                <hr/>
+
+                <div  className="contain">
+                    <Button type="primary">Primary</Button>
+                    <Button>Default</Button>
+                    <Button type="dashed">Dashed</Button>
+                    <Button type="danger">Danger</Button>
+                </div>
+
                  <Modal
                     visible={this.props.modalDialog.visable}
                     title={this.props.modalDialog.title}
