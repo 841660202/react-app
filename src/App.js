@@ -7,7 +7,7 @@ import {hashHistory} from 'react-router';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 import RouteMap from './router/RouterMap';
-import ScrollToTop from './Component/ScrollToTop';
+import ScrollToTop from './components/ScrollToTop';
 import RecursivePatch from './containers/Home/RecursivePatch';
 import SideBar from './containers/Home/SideBar';
 import AnimationRouter from './containers/Home/AnimationRouter';
