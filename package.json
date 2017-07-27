@@ -1,5 +1,5 @@
 {
-<<<<<<< HEAD
+
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -27,20 +27,4 @@
     "sass-loader": "^6.0.6"
   }
 }
-=======
-  "name": "react-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
->>>>>>> cfdcebf6e372d580a261d23c182413e2830223f7
+
