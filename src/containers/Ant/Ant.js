@@ -49,7 +49,7 @@ export default class SiderDemo extends React.Component {
             <Layout className='ant-layout-has-sider'>
                 <Side />
                 <Layout>
-                    <Header style={{ background: '#000', padding: 0,color:'#fff',textAlign:'center' }} >wo 需要用redux来动态改变实现交互</Header>
+                    <Header style={{ background: '#000', padding: 0,color:'#fff',textAlign:'center' }} >需要用redux来动态改变实现交互</Header>
                     <Content style={{ margin: '0 16px'}}>
                         Content组件 
                         {/*<Breadcrumb style={{ margin: '12px 0'}}>
