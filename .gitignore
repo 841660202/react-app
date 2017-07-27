@@ -19,5 +19,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 
 src/**/*.css
+=======
+>>>>>>> cfdcebf6e372d580a261d23c182413e2830223f7
