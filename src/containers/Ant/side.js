@@ -24,7 +24,11 @@ class Side extends React.Component {
         collapsed={this.state.collapsed}
         onCollapse={this.onCollapse}
         >
-        <div className="logo">Side组件</div>
+        <div className="logo"> 
+          <Icon type="chrome" spin={true} style={{fontSize:32,color:'#08c'}}/> 
+         
+          <Icon type="chrome" spin={true} style={{fontSize:32,color:'#08c',float:'right'}}/> 
+        </div>
         <Menu 
           theme="dark"
           defaultSelectedKeys={this.props.SelectedKeys} 
@@ -33,14 +37,14 @@ class Side extends React.Component {
           <Menu.Item key="1">
             <Link to="/">
               <Icon type="pie-chart"/>
-              <span>Option 1</span>
+              <span>按钮 & 图标 & 锚点导航</span>
             </Link>
 
           </Menu.Item>
           <Menu.Item key="2">
             <Link to="/key2">
               <Icon type="desktop"/>
-              <span>Option 2</span>
+              <span>步骤条</span>
             </Link>
           </Menu.Item>
           <SubMenu
