@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../../actions/index';
 
 import './Ant.css'
 import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 const {Header, Content, Footer, Sider} = Layout;
 const SubMenu = Menu.SubMenu;
 
-export default class Side extends React.Component {
+class Side extends React.Component {
   state = {
     collapsed: false
   };
@@ -19,9 +22,14 @@ export default class Side extends React.Component {
       <Sider
         collapsible
         collapsed={this.state.collapsed}
-        onCollapse={this.onCollapse}>
+        onCollapse={this.onCollapse}
+        >
         <div className="logo">Side组件</div>
-        <Menu theme="dark" defaultSelectedKeys={['2']} mode="inline">
+        <Menu 
+          theme="dark"
+          defaultSelectedKeys={this.props.SelectedKeys} 
+          mode="inline"
+          defaultOpenKeys={this.props.subMenuOpen}>
           <Menu.Item key="1">
             <Link to="/">
               <Icon type="pie-chart"/>
@@ -78,3 +86,22 @@ export default class Side extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  console.log('routerPathName : mapStateToProps,state is ',state);
+  console.info(typeof  state.stores.routerPathName)
+    return { SelectedKeys: state.stores.routerPathName.arr,
+            collapsed:state.stores.routerPathName.collapsed,
+            subMenuOpen:state.stores.routerPathName.subMenuOpen,
+           }
+}
+const mapDispatchToProps = (dispatch) => {
+  //console.log('mapDispatchToProps');
+    return {
+        actions: bindActionCreators(actions, dispatch),//将行为与dispatch 绑定
+    }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Side)

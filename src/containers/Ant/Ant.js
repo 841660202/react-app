@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link,Switch} from 'react-router-dom'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../../actions/index';
+
 // import Button from 'antd/lib/button';
 import './Ant.css'
 // class AntButton extends Component {
@@ -24,6 +28,7 @@ import Subpage5 from '../../subpage/subpage5';
 import Subpage6 from '../../subpage/subpage6';
 import Subpage7 from '../../subpage/subpage7';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -35,14 +40,30 @@ const SubMenu = Menu.SubMenu;
 
 
 
-export default class SiderDemo extends React.Component {
-  state = {
-    collapsed: false,
-  };
-  onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
+class SiderDemo extends React.Component {
+//   state = {
+//     collapsed: false,
+//   };
+//   onCollapse = (collapsed) => {
+//     console.log(collapsed);
+//     this.setState({ collapsed });
+//   }
+  componentWillMount = () => {
+       var pathname=window.location.pathname;
+       console.info(pathname);
+       let arr=[];
+       let subMenuOpen=[];
+       let collapsed=false;
+       if(pathname==="/key3"||pathname==="/key4"||pathname==="/key5"){
+            subMenuOpen=['sub1']
+       }
+       if(pathname==="/key6"||pathname==="/key7"){
+            subMenuOpen=['sub2']
+       }
+       arr.push(pathname.substr(4))
+       this.props.actions.RouterPathName(arr,collapsed,subMenuOpen);
   }
+  
   render() {
     return (
         <Router>
@@ -80,3 +101,18 @@ export default class SiderDemo extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  //console.log('ModalDialog : mapStateToProps,state is ',state);
+    return { defaultSelectedKeys: state.stores.routerPathName }
+}
+const mapDispatchToProps = (dispatch) => {
+  //console.log('mapDispatchToProps');
+    return {
+        actions: bindActionCreators(actions, dispatch),//将行为与dispatch 绑定
+    }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SiderDemo)

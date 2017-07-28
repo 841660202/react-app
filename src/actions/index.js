@@ -15,3 +15,11 @@ export function HideModal(){
     type :constants.HIDEMODAL
   }
 }
+export function RouterPathName(arr,collapsed,subMenuOpen){
+  return {
+    type :constants.RouterPathName,
+    arr :arr,
+    collapsed:collapsed,
+    subMenuOpen:subMenuOpen
+  }
+}

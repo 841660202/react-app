@@ -19,3 +19,4 @@ export const UPDATEPOSTERINFO = 'UPDATEPOSTERINFO'
 export const UPDATEDETAILINFO = 'UPDATEDETAILINFO'
 export const UPDATECATEGORYDATA = 'UPDATECATEGORYDATA'
 export const UPDATEPOSTNODATA = 'UPDATEPOSTNODATA'
+export const RouterPathName = 'RouterPathName'//路由，指定路由处理导航
