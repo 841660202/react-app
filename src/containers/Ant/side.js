@@ -51,7 +51,7 @@ class Side extends React.Component {
             key="sub1"
             title={< span > <Icon type="user"/> < span > User </span></span >}>
             <Menu.Item key="3">
-              <Link to="/key3">Tom
+              <Link to="/key3">自动补全
               </Link>
             </Menu.Item>
             <Menu.Item key="4">
